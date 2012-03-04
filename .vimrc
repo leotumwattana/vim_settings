@@ -39,7 +39,7 @@ set title                           " Set the terminal's title
 set visualbell                      " No beeping.
 set guifont=Menlo:h14               " set MacVIM font
 
-set list                            " show invisible characters
+"set list                            " show invisible characters
 let mapleader=";"                   " Change <leader> to ;
 
 set softtabstop=2                   " set soft tabs to 2
