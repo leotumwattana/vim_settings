@@ -60,6 +60,27 @@ set shell=/bin/bash
 " Use color theme
 colorscheme railscasts
 
+" Personal Mappings
+" Saves time
+nmap <space> :
+
+" Automatically change current directory to that of the file in the buffer
+autocmd BufEnter * cd %:p:h
+
+" Source the vimrc file after saving it
+if has("autocmd")
+  autocmd bufwritepost .vimrc source ~/.vim/.vimrc
+endif
+
+" Nerdtree mappings.
+map <leader>nt :NERDTreeToggle<cr>
+
+" Window mappings.
+nmap <leader>wh <C-W>h
+nmap <leader>wl <C-W>l
+nmap <leader>wk <C-W>k
+nmap <leader>wj <C-W>j
+
 " Tab mappings.
 map <leader>tt :tabnew<cr>
 map <leader>te :tabedit
