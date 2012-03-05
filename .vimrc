@@ -37,7 +37,7 @@ set scrolloff=3                     " Show 3 lines of context around the cursor.
 set title                           " Set the terminal's title
 
 set visualbell                      " No beeping.
-set guifont=Menlo:h14               " set MacVIM font
+set guifont=Menlo:h16               " set MacVIM font
 
 "set list                            " show invisible characters
 let mapleader=";"                   " Change <leader> to ;
