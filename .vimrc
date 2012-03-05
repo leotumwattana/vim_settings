@@ -51,6 +51,8 @@ set nowritebackup                   " And again.
 set noswapfile                      "no swap files
 "set directory=$HOME/.vim/tmp//,.    " Keep swap files in one location
 
+set splitbelow                      " Split windows BELOW current window.
+
 set shell=/bin/bash
 
 " Use color theme
