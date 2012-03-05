@@ -51,7 +51,7 @@ set nowritebackup                   " And again.
 set noswapfile                      "no swap files
 "set directory=$HOME/.vim/tmp//,.    " Keep swap files in one location
 
-"set shell=/bin/zsh
+set shell=/bin/bash
 
 " Use color theme
 colorscheme railscasts
