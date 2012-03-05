@@ -48,7 +48,8 @@ set expandtab                       " Use spaces instead of tabs
 
 set nobackup                        " Don't make a backup before overwriting a file.
 set nowritebackup                   " And again.
-set directory=$HOME/.vim/tmp//,.    " Keep swap files in one location
+set noswapfile                      "no swap files
+"set directory=$HOME/.vim/tmp//,.    " Keep swap files in one location
 
 " Use color theme
 colorscheme railscasts
