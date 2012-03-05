@@ -34,6 +34,8 @@ set hlsearch                        " set highlight search
 set wrap                            " Turn on line wrapping
 set scrolloff=3                     " Show 3 lines of context around the cursor.
 
+set foldenable                      " Enable code folding
+
 set title                           " Set the terminal's title
 
 set visualbell                      " No beeping.
