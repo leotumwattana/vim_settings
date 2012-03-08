@@ -13,6 +13,7 @@ runtime macros/matchit.vim	    " Load the matchit plugin.
 
 set showcmd                         " display incomplete commands
 set showmode                        " Display the mode you're in.
+set cmdheight=2                     " Have two lines for bottom command height
 
 set backspace=indent,eol,start      " Intuitive backspacing.
 
@@ -55,7 +56,14 @@ set noswapfile                      "no swap files
 
 set splitbelow                      " Split windows BELOW current window.
 
-set shell=/bin/bash
+set cursorline                      " Highlight cursor line
+" set cursorcolumn                  " Highlight cursor column
+set laststatus=2                    " Show the status line all the time
+" Useful status information at bottom of screen
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\%{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(%l,%c-%v\ %)%P
+
+
+set shell=zsh\ --login
 
 " Use color theme
 colorscheme railscasts
@@ -64,8 +72,6 @@ colorscheme railscasts
 " Saves time
 nmap <space> :
 
-" Automatically change current directory to that of the file in the buffer
-autocmd BufEnter * cd %:p:h
 
 " Source the vimrc file after saving it
 if has("autocmd")
@@ -92,8 +98,17 @@ map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
+" Make it easy to suspend and go to shell
+map <leader>z <c-z>
+
+" Map copy to system clipboard
+vmap <leader>cpp "+y
+
+" ZenCoding Mappings
+imap <leader>e <C-Y>,<Esc>
+let g:user_zen_settings = {
+  \  'indentation' : '  '
+  \}
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -145,6 +160,7 @@ if has("autocmd")
 else
 
   set autoindent    " always set autoindenting on
+  set smartindent
 
 endif " has("autocmd")
 
