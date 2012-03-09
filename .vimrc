@@ -42,8 +42,8 @@ set title                           " Set the terminal's title
 set visualbell                      " No beeping.
 set guifont=Menlo:h16               " set MacVIM font
 
-"set list                            " show invisible characters
-let mapleader=";"                   " Change <leader> to ;
+"set list                           " show invisible characters
+let mapleader=";"                   " Map <leader>
 
 set softtabstop=2                   " set soft tabs to 2
 set shiftwidth=2                    " And again, related
@@ -55,6 +55,7 @@ set noswapfile                      "no swap files
 "set directory=$HOME/.vim/tmp//,.    " Keep swap files in one location
 
 set splitbelow                      " Split windows BELOW current window.
+nnoremap <leader>v <C-w>v<C-w>l     " Opens a vertical split and switches over
 
 set cursorline                      " Highlight cursor line
 " set cursorcolumn                  " Highlight cursor column
@@ -62,6 +63,16 @@ set laststatus=2                    " Show the status line all the time
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\%{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(%l,%c-%v\ %)%P
 
+"Fater shortcut for commenting. Requires T-Comment Plugin
+map <leader>c <c-_><c-_>
+
+"Bubble single lines (kicks butt)
+nmap <C-Up> ddkP
+nmap <C-Down> ddp
+
+"Bubble multiple lines
+vmap <C-Up> xkP`[V`]
+vmap <C-Down> xp`[V`]
 
 set shell=zsh\ --login
 
