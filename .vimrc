@@ -104,6 +104,19 @@ map <leader>z <c-z>
 " Map copy to system clipboard
 vmap <leader>cpp "+y
 
+"Use TAB to complete when typing words, else inserts TABs as usual.
+""Uses dictionary and source files to find matching words to complete.
+
+function! Tab_Or_Complete()
+  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+    return "\<C-N>"
+  else
+    return "\<Tab>"
+  endif
+endfunction
+:inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
+:set dictionary="/usr/dict/words"
+
 " ZenCoding Mappings
 imap <leader>e <C-Y>,<Esc>
 let g:user_zen_settings = {
