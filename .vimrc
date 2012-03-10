@@ -49,11 +49,6 @@ set softtabstop=2                   " set soft tabs to 2
 set shiftwidth=2                    " And again, related
 set expandtab                       " Use spaces instead of tabs
 
-set nobackup                        " Don't make a backup before overwriting a file.
-set nowritebackup                   " And again.
-set noswapfile                      "no swap files
-"set directory=$HOME/.vim/tmp//,.    " Keep swap files in one location
-
 set splitbelow                      " Split windows BELOW current window.
 nnoremap <leader>v <C-w>v<C-w>l     " Opens a vertical split and switches over
 
@@ -198,3 +193,8 @@ endif
 
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
+
+" Backups
+set backupdir=~/.vim/tmp/backup//  " backups
+set directory=~/.vim/tmp/swap//    " swap files
+set backup                         " enable backup
