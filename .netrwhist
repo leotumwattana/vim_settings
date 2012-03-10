@@ -1,4 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =3
 let g:netrw_dirhist_1='/Users/LeoT/Dropbox/github/learn/the-rspec-book'
 let g:netrw_dirhist_2='/Users/LeoT/Dropbox/github/work/stock-loan'
+let g:netrw_dirhist_3='/Users/LeoT/Dropbox/github/learn/stanford/lecture 1/programming questions/question1'
