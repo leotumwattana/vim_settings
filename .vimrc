@@ -110,6 +110,9 @@ map <leader>z <c-z>
 " Map copy to system clipboard
 vmap <leader>cpp "+y
 
+" Make it easier to run rspec
+nmap <leader>te :w\|!rspec spec --color<cr>
+
 "Use TAB to complete when typing words, else inserts TABs as usual.
 ""Uses dictionary and source files to find matching words to complete.
 
