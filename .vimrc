@@ -4,59 +4,81 @@ set nocompatible
 
 silent! call pathogen#runtime_append_all_bundles()
 
-syntax enable			    " Turn on syntax highlighting.
-filetype plugin indent on	    " Turn on file type detection.
+syntax enable                                               " Turn on syntax highlighting.
+filetype plugin indent on                                   " Turn on file type detection.
 
-runtime macros/matchit.vim	    " Load the matchit plugin.
+runtime macros/matchit.vim                                  " Load the matchit plugin.
 
-" allow backspacing over everything in insert mode
+set showcmd                                                 " display incomplete commands
+set showmode                                                " Display the mode you're in.
+set cmdheight=2                                             " Have two lines for bottom command height
 
-set showcmd                         " display incomplete commands
-set showmode                        " Display the mode you're in.
-set cmdheight=2                     " Have two lines for bottom command height
+set backspace=indent,eol,start                              " Intuitive backspacing.
 
-set backspace=indent,eol,start      " Intuitive backspacing.
+set history=100                                             " keep 50 lines of command line history
+set hidden                                                  " better handling of multiple files
 
-set history=100                     " keep 50 lines of command line history
-set hidden                          " better handling of multiple files
+set wildmenu                                                " Enhanced command line completion.
+set wildmode=list:longest                                   " Complete files like a shell.
+set wildignore=*.swp,*.bak,*.pyc,*.class                    "ignore these kinds of file
 
-set wildmenu                        " Enhanced command line completion.
-set wildmode=list:longest           " Complete files like a shell.
+set ignorecase                                              " Case-insensitive searching.
+set smartcase                                               " But case-sensitive if expression contains a capital letter.
 
-set ignorecase			    " Case-insensitive searching.
-set smartcase			    " But case-sensitive if expression contains a capital letter.
+set number                                                  " show line numbers
+set ruler                                                   " show the cursor position all the time
 
-set number                          " show line numbers
-set ruler                           " show the cursor position all the time
+set incsearch                                               " do incremental searching
+set hlsearch                                                " set highlight search
 
-set incsearch                       " do incremental searching
-set hlsearch                        " set highlight search
+set wrap                                                    " Turn on line wrapping
+set scrolloff=3                                             " Show 3 lines of context around the cursor.
 
-set wrap                            " Turn on line wrapping
-set scrolloff=3                     " Show 3 lines of context around the cursor.
+set foldenable                                              " Enable code folding
 
-set foldenable                      " Enable code folding
+set title                                                   " Set the terminal's title
 
-set title                           " Set the terminal's title
+set visualbell                                              " No beeping.
+set guifont=Menlo:h16                                       " set MacVIM font
 
-set visualbell                      " No beeping.
-set guifont=Menlo:h16               " set MacVIM font
+let mapleader=";"                                           " Map <leader>
 
-"set list                           " show invisible characters
-let mapleader=";"                   " Map <leader>
+set softtabstop=2                                           " set soft tabs to 2
+set shiftwidth=2                                            " And again, related
+set expandtab                                               " Use spaces instead of tabs
 
-set softtabstop=2                   " set soft tabs to 2
-set shiftwidth=2                    " And again, related
-set expandtab                       " Use spaces instead of tabs
+set splitbelow                                              " Split windows BELOW current window.
+set pastetoggle=<F2>                                        " Enable paste mode (ignores smart indent)
+set timeoutlen=500                                          "Set the timeout time after typing in a leader to 500 ms
+set cursorline                                              " Highlight cursor line
 
-set splitbelow                      " Split windows BELOW current window.
-nnoremap <leader>v <C-w>v<C-w>l     " Opens a vertical split and switches over
+set laststatus=2                                            " Show the status line all the time
+set shell=zsh\ --login
 
-set cursorline                      " Highlight cursor line
-" set cursorcolumn                  " Highlight cursor column
-set laststatus=2                    " Show the status line all the time
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\%{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(%l,%c-%v\ %)%P
+
+set backupdir=~/.vim/tmp/backup//                           " backups
+set directory=~/.vim/tmp/swap//                             " swap files
+set backup                                                  " enable
+
+" Setting better tab indenting behavior
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+
+
+
+
+" Use color theme
+colorscheme leotumwattana
+
+
+
+" Insert line and go back to normal mode
+nmap <leader>l o<Esc>
+
+" Opens a vertical split and switches over
+nnoremap <leader>v <C-w>v<C-w>l     
 
 "Fater shortcut for commenting. Requires T-Comment Plugin
 map <leader>c <c-_><c-_>
@@ -69,15 +91,8 @@ nmap <C-Down> ddp
 vmap <C-Up> xkP`[V`]
 vmap <C-Down> xp`[V`]
 
-set shell=zsh\ --login
-
-" Use color theme
-colorscheme railscasts
-
-" Personal Mappings
 " Saves time
 nmap <space> :
-
 
 " Source the vimrc file after saving it
 if has("autocmd")
@@ -113,6 +128,10 @@ vmap <leader>cpp "+y
 " Make it easier to run rspec
 nmap <leader>te :w\|!rspec spec --color<cr>
 
+" Tabularize abbreviations
+map <leader>ta :Tabularize /
+
+
 "Use TAB to complete when typing words, else inserts TABs as usual.
 ""Uses dictionary and source files to find matching words to complete.
 
@@ -126,23 +145,33 @@ endfunction
 :inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 :set dictionary="/usr/dict/words"
 
+
+
 " ZenCoding Mappings
 imap <leader>e <C-Y>,<Esc>
 let g:user_zen_settings = {
   \  'indentation' : '  '
   \}
 
+
+
 " Don't use Ex mode, use Q for formatting
 map Q gq
+
+
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
+
+
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
   set mouse=a
 endif
+
+
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -150,6 +179,8 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
 endif
+
+
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -164,8 +195,8 @@ if has("autocmd")
   augroup vimrcEx
   au!
 
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
+  " For all text files set 'textwidth' to 80 characters.
+  autocmd FileType text setlocal textwidth=80
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
@@ -197,7 +228,3 @@ endif
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
-" Backups
-set backupdir=~/.vim/tmp/backup//  " backups
-set directory=~/.vim/tmp/swap//    " swap files
-set backup                         " enable backup
