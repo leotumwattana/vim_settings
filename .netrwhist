@@ -1,5 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/Users/LeoT/Dropbox/github/learn/the-rspec-book'
 let g:netrw_dirhist_2='/Users/LeoT/Dropbox/github/work/stock-loan'
 let g:netrw_dirhist_3='/Users/LeoT/Dropbox/github/learn/stanford/lecture 1/programming questions/question1'
+let g:netrw_dirhist_4='/Users/LeoT/Dropbox/github/learn/stanford/lecture 1/programming questions/question1/merge_sort'
+let g:netrw_dirhist_5='/Users/LeoT/Dropbox/github/learn/stanford/lecture 1/programming questions/question1/merge_sort/lib'
+let g:netrw_dirhist_6='/Users/LeoT/Dropbox/RPM/ModelarioBuilder/app/assets'
+let g:netrw_dirhist_7='/Users/LeoT/Dropbox/github/work/StockLoan'
+let g:netrw_dirhist_8='/Users/LeoT/Dropbox/github/learn/stanford/lecture 1/programming questions/question1/merge_sort'
