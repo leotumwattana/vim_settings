@@ -73,6 +73,18 @@ vnoremap <S-Tab> <gv
 colorscheme leotumwattana
 
 
+" Execute open rspec buffer
+function! RunSpec(args)
+  let spec = "spec"
+  let cmd = ":!bundle exec rspec " . spec . " % -cfn " . a:args
+  execute cmd 
+endfunction
+
+" run one rspec example or describe block based on cursor position
+map ;s :w\|:call RunSpec("-l " . <C-r>=line('.')<CR>)<cr>
+" run full spec file
+map ;S :w\|:call RunSpec("")<cr>
+
 
 " Insert line and go back to normal mode
 nmap <leader>l o<Esc>
@@ -107,6 +119,8 @@ nmap <leader>wh <C-W>h
 nmap <leader>wl <C-W>l
 nmap <leader>wk <C-W>k
 nmap <leader>wj <C-W>j
+nmap <leader>wr <C-W>r
+set winwidth=85
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
