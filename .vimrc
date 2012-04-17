@@ -36,6 +36,10 @@ set scrolloff=3                                             " Show 3 lines of co
 
 set foldenable                                              " Enable code folding
 
+set viewoptions=folds
+au BufWinLeave * mkview
+au BufWinEnter * silent loadview
+
 set title                                                   " Set the terminal's title
 
 set visualbell                                              " No beeping.
