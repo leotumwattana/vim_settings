@@ -36,9 +36,9 @@ set scrolloff=3                                             " Show 3 lines of co
 
 set foldenable                                              " Enable code folding
 
-set viewoptions=folds
-au BufWinLeave * mkview
-au BufWinEnter * silent loadview
+set viewoptions=folds                                       " Save only info
+au BufWinLeave * mkview                                     " auto save fold
+au BufWinEnter * silent loadview                            " auto load fold
 
 set title                                                   " Set the terminal's title
 
